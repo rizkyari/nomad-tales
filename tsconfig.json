@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",                     // Specify ECMAScript target version
+    "jsx": "react-jsx",                 // Use the correct JSX transform for React
+    "outDir": "./build",                // Output directory for compiled files
+    "allowJs": true,                    // Allow JavaScript files in the project
+    "strict": true,                     // Enable strict type-checking options
+    "forceConsistentCasingInFileNames": true,  // Enforce consistent file naming
+    "module": "esnext",                 // Specify module code generation
+    "moduleResolution": "node",        // Resolve modules in Node.js style
+    "esModuleInterop": true,           // Enable interoperability for CommonJS
+    "skipLibCheck": true,              // Skip type checking for declaration files
+    "resolveJsonModule": true          // Allow importing .json files
+  },
+  "include": ["src/**/*"],              // Include all files in the src folder
+  "exclude": ["node_modules"]           // Exclude node_modules from compilation
+}
