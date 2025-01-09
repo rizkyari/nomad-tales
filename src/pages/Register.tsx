@@ -6,7 +6,7 @@ import { isEmailValid, isPasswordMatch } from '../utils/validation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -40,7 +40,7 @@ const Register = () => {
             );
 
             setMessage(`Registration successful! Welcome, ${data.user.username}`);
-            navigate('/');
+            navigate('/dashboard');
         } catch (error: any) {
             setMessage('Registration failed. Please try again.');
             console.error(error.response ? error.response.data : error.message);
@@ -131,6 +131,13 @@ const Register = () => {
             >
                 {isSubmitting ? "Please wait..." : "Register"}
             </button>
+
+            <p className="mt-4 text-center text-sm text-dark">
+                Already have an account?{' '}
+                    <Link to="/login" className="text-accent underline hover:text-dark">
+                        Click here to login
+                    </Link>
+            </p>
         </form>
     </div>
   );

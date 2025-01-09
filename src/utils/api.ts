@@ -1,4 +1,7 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { clearAuth } from '../redux/slices/authSlice';
+import { AppDispatch } from '../redux/store';
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 
@@ -24,6 +27,18 @@ export const registerUser = async (email: string, username: string, password: st
 };
 
 /**
+ * Login.
+ * @param {string} identifier - The user's email address.
+ * @param {string} password - The desired password.
+ * @returns {Promise<any>} The server response, including JWT and user info.
+ */
+export const userLogin = async (identifier: string, password: string) => {
+    const response = await apiClient.post('/api/auth/local', { identifier, password });
+    return response.data;
+};
+
+
+/**
  * Verify the authenticated user's info based on the JWT in cookies.
  * @returns {Promise<any>} The user's info if authenticated.
  */
@@ -32,8 +47,13 @@ export const verifyUser = async () => {
     return response.data;
 };
 
-export const logoutUser = async () => {
-  await apiClient.post('/auth/logout');
+/**
+ * Logs out the user by removing the JWT and clearing Redux state.
+ * @param dispatch - The Redux dispatch function.
+ */
+export const logoutUser = (dispatch: AppDispatch) => {
+    Cookies.remove('jwt');
+    dispatch(clearAuth());
 };
 
 export default apiClient;
