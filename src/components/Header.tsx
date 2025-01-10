@@ -60,17 +60,23 @@ const Header = () => {
                     <a href="/about" className="hover:text-accent">About</a>
                 </li>
                 <li>
-                    <a href="/articles" className="hover:text-accent">Articles</a>
-                </li>
-                <li>
                     <a href="/contact" className="hover:text-accent">Contact</a>
                 </li>
                 {isAuthenticated ? (
-                <li>
-                    <button onClick={handleLogout} className="bg-accent text-light px-4 py-2 rounded hover:bg-dark">
-                        Logout
-                    </button>
-                </li>
+                <>
+                    <li>
+                        <a href="/dashboard" className="hover:text-accent">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/profile" className="hover:text-accent">Profile</a>
+                    </li>
+                    <li>
+                        <button onClick={handleLogout} className="bg-accent text-light px-4 py-2 rounded hover:bg-dark">
+                            Logout
+                        </button>
+                    </li>    
+                </>
+                
             ) : (
                 <>
                     <li>
@@ -98,17 +104,22 @@ const Header = () => {
                     <a href="/about" className="block hover:text-accent">About</a>
                 </li>
                 <li>
-                    <a href="/articles" className="block hover:text-accent">Articles</a>
-                </li>
-                <li>
                     <a href="/contact" className="block hover:text-accent">Contact</a>
                 </li>
                 {isAuthenticated ? (
-                <li>
-                    <button onClick={handleLogout} className="block bg-accent text-light px-4 py-2 rounded hover:bg-dark w-full text-left">
-                        Logout
-                    </button>
-                </li>
+                <>
+                    <li>
+                        <a href="/dashboard" className="hover:text-accent">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/profile" className="hover:text-accent">Profile</a>
+                    </li>
+                    <li>
+                        <button onClick={handleLogout} className="block bg-accent text-light px-4 py-2 rounded hover:bg-dark w-full text-left">
+                            Logout
+                        </button>
+                    </li>
+                </>
                 ) : (
                 <>
                     <li>

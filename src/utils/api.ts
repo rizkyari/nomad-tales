@@ -14,6 +14,14 @@ const apiClient = axios.create({
     withCredentials: true,
 });
 
+apiClient.interceptors.request.use((config) => {
+    const token = Cookies.get('jwt');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
 /**
  * Register a new user.
  * @param {string} email - The user's email address.
