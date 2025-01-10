@@ -65,6 +65,9 @@ const Header = () => {
                 {isAuthenticated ? (
                 <>
                     <li>
+                        <a href="/articles" className="hover:text-accent">Articles</a>
+                    </li>
+                    <li>
                         <a href="/dashboard" className="hover:text-accent">Dashboard</a>
                     </li>
                     <li>
@@ -108,6 +111,9 @@ const Header = () => {
                 </li>
                 {isAuthenticated ? (
                 <>
+                    <li>
+                        <a href="/articles" className="hover:text-accent">Articles</a>
+                    </li>
                     <li>
                         <a href="/dashboard" className="hover:text-accent">Dashboard</a>
                     </li>
