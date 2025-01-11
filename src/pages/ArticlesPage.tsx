@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 interface Article {
   id: number;
@@ -95,16 +96,9 @@ const ArticlesPage = () => {
     };
 
     if (loading && page === 1) {
-        return <div className="min-h-screen flex items-center justify-center bg-background">
-            <div>
-                <h2>Loading...</h2>
-                <img
-                src="/page-load.gif"
-                alt="Loading..."
-                className="h-5 w-5"
-                />
-            </div>
-        </div>;
+        return <div className="min-h-screen bg-background p-6">
+                <Loading/>
+                </div>;
     }
 
     if (error) {

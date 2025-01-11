@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import apiClient from '../utils/api';
 import EditArticleModal from '../components/EditArticleModal';
+import Loading from '../components/Loading';
 
 interface Article {
     id: number;
@@ -57,7 +58,9 @@ const ArticleDetailsPage = () => {
       };
 
     if (loading) {
-        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+        return <div className="min-h-screen bg-background p-6">
+        <Loading/>
+        </div>;
     }
 
     if (error) {

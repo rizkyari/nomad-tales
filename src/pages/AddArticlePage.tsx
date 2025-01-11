@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 interface Category {
   id: number;
@@ -164,7 +165,7 @@ const AddArticlePage = () => {
             disabled={loading}
             className="bg-dark text-light px-4 py-2 rounded hover:bg-accent w-full"
           >
-            {loading ? 'Submitting...' : 'Submit'}
+            {loading ? (<Loader text='Submitting...'/>) : 'Submit'}
           </button>
         </form>
       </div>

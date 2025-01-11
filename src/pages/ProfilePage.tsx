@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {verifyUser} from '../utils/api';
+import Loading from '../components/Loading';
 
 interface UserProfile {
   id: number;
@@ -30,7 +31,9 @@ const ProfilePage = () => {
   }, []);
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen bg-background p-6">
+      <Loading/>
+    </div>;
   }
 
   if (error) {

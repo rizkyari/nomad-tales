@@ -13,6 +13,7 @@ import {
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { exportToCSV } from '../utils/exportToCSV';
+import Loading from '../components/Loading';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
@@ -125,7 +126,9 @@ const Dashboard = () => {
   };
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen bg-background p-6">
+      <Loading/>
+    </div>;
   }
 
   if (error) {
