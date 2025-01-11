@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {verifyUser} from '../utils/api';
+import Loading from '../components/Loading';
+import { useNavigate } from 'react-router-dom';
 
 interface UserProfile {
   id: number;
@@ -12,6 +14,8 @@ const ProfilePage = () => {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,7 +34,9 @@ const ProfilePage = () => {
   }, []);
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen bg-background p-6">
+      <Loading/>
+    </div>;
   }
 
   if (error) {
@@ -58,6 +64,12 @@ const ProfilePage = () => {
           </p>
         </div>
       )}
+      <button
+       onClick={() => navigate(`/categories`)}
+       className="mt-6 bg-dark text-light py-2 px-4 rounded hover:bg-accent block mx-auto"
+      >
+        Manage Categories
+      </button>
     </div>
   );
 };

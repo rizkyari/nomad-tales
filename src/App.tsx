@@ -11,6 +11,9 @@ import ProfilePage from './pages/ProfilePage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticleDetailsPage from './pages/ArticleDetailsPage';
 import AddArticlePage from './pages/AddArticlePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import CategoryPage from './pages/CategoryPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -40,6 +43,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
 
           {/* Protected Routes */}
           <Route
@@ -79,6 +84,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AddArticlePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <ProtectedRoute>
+                <CategoryPage />
               </ProtectedRoute>
             }
           />
