@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 import { userLogin } from '../utils/api';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '../redux/slices/authSlice';
+import Loader from '../components/Loader';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
@@ -90,7 +91,7 @@ const Login = () => {
         </div>
 
         <button type="submit" className="w-full bg-dark text-light py-2 px-4 rounded hover:bg-accent">
-          {isSubmitting ? 'Please Wait...' : 'Login'}
+          {isSubmitting ? (<Loader text='Please Wait...'/>) : 'Login'}
         </button>
 
         <p className="mt-4 text-center text-sm text-dark">

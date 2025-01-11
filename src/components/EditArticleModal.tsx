@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import apiClient from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 interface EditArticleModalProps {
   isOpen: boolean;
@@ -215,7 +216,7 @@ const EditArticleModal: React.FC<EditArticleModalProps> = ({
           disabled={loading}
           className="bg-dark text-light px-4 py-2 rounded hover:bg-accent w-full"
         >
-          {loading ? 'Saving...' : 'Save Changes'}
+          {loading ? (<Loader text='Saving...'/>) : 'Save Changes'}
         </button>
       </form>
     </Modal>

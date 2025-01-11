@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Cookies from 'js-cookie';
 import { useNavigate, Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -129,7 +130,7 @@ const Register = () => {
                 className="w-full bg-dark text-light py-2 px-4 rounded hover:bg-accent"
                 disabled={!isFormValid || isSubmitting}
             >
-                {isSubmitting ? "Please wait..." : "Register"}
+                {isSubmitting ? (<Loader text='Please Wait...'/>) : "Register"}
             </button>
 
             <p className="mt-4 text-center text-sm text-dark">
