@@ -8,6 +8,9 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/LandingPage';
 import ProfilePage from './pages/ProfilePage';
+import ArticlesPage from './pages/ArticlesPage';
+import ArticleDetailsPage from './pages/ArticleDetailsPage';
+import AddArticlePage from './pages/AddArticlePage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -52,6 +55,30 @@ function App() {
             element={
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles"
+            element={
+              <ProtectedRoute>
+                <ArticlesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles/:id"
+            element={
+              <ProtectedRoute>
+                <ArticleDetailsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles/new"
+            element={
+              <ProtectedRoute>
+                <AddArticlePage />
               </ProtectedRoute>
             }
           />
